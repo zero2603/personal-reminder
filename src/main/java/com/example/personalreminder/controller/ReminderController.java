@@ -36,8 +36,8 @@ public class ReminderController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Reminder> updateReminder(@PathVariable Long id,
-                                   @RequestBody UpdateReminderRequest payload,
-                                   @AuthenticationPrincipal UserPrincipal currentUser) {
+                                                   @Valid @RequestBody UpdateReminderRequest payload,
+                                                   @AuthenticationPrincipal UserPrincipal currentUser) {
         Reminder updatedReminder = reminderService.updateReminder(currentUser.id(), id, payload);
         if (updatedReminder == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Reminder not found");

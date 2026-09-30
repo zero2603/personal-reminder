@@ -1,5 +1,6 @@
 package com.example.personalreminder.dto;
 
+import com.example.personalreminder.constant.RepeatEnum;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
@@ -14,6 +15,5 @@ public class UpdateReminderRequest {
     @Size(min = 5, max = 5)
     public String remindTime;
 
-    @Size(max = 10)
-    public String repeat;
+    public RepeatEnum repeat;
 }

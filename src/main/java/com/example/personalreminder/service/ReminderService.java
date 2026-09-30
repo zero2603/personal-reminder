@@ -50,7 +50,7 @@ public class ReminderService {
         if (payload.getRemindTime() != null && !payload.getRemindTime().isEmpty()) {
             record.setRemindTime(payload.getRemindTime());
         }
-        if (payload.getRepeat() != null && !payload.getRepeat().isEmpty()) {
+        if (payload.getRepeat() != null) {
             record.setRepeat(payload.getRepeat());
         }
 

@@ -1,6 +1,8 @@
 package com.example.personalreminder.dto;
 
+import com.example.personalreminder.constant.RepeatEnum;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
@@ -18,7 +20,6 @@ public class CreateReminderRequest {
     @Size(min = 5, max = 5)
     public String remindTime;
 
-    @NotBlank
-    @Size(max = 10)
-    public String repeat;
+    @NotNull
+    public RepeatEnum repeat;
 }

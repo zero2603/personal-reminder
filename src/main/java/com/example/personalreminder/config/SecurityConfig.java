@@ -30,6 +30,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // API dùng JWT không cần CSRF (stateless)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll() // login/register không cần token
+                        .requestMatchers("/error").permitAll()       // để lỗi (400, 404, 500...) không bị chặn thành 403
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session

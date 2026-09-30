@@ -1,5 +1,7 @@
 package com.example.personalreminder.entity;
 
+import com.example.personalreminder.constant.RepeatEnum;
+import com.example.personalreminder.converter.RepeatEnumConverter;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,7 +31,8 @@ public class Reminder {
     private String remindTime;
 
     @Column(name = "repeat", nullable = false)
-    private String repeat;
+    @Convert(converter = RepeatEnumConverter.class)
+    private RepeatEnum repeat;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
