@@ -1,5 +1,6 @@
 package com.example.personalreminder.service;
 
+import com.example.personalreminder.entity.User;
 import com.example.personalreminder.repository.UserRepository;
 import com.example.personalreminder.security.UserPrincipal;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -27,5 +28,9 @@ public class UserService implements UserDetailsService {
                 user.getPassword(),
                 List.of(new SimpleGrantedAuthority("ROLE_USER"))
         );
+    }
+
+    public List<User> getAll() {
+        return userRepository.findAll();
     }
 }
